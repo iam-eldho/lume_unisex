@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMÉ - The Unisex Lounge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #000;
+            --primary-white: #fff;
+            --border-color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            line-height: 1.6;
+        }
+
+        /* Loading Animation */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-container.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-container {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+        }
+
+
+
+        .scissor-animation {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .scissor {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .scissor-left,
+        .scissor-right {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: var(--primary-white);
+            clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+            transform-origin: bottom center;
+        }
+
+        .scissor-left {
+            left: 0;
+            animation: scissorLeft 1.5s ease-in-out infinite;
+        }
+
+        .scissor-right {
+            right: 0;
+            animation: scissorRight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scissorLeft {
+
+            0%,
+            100% {
+                transform: rotate(-15deg);
+            }
+
+            50% {
+                transform: rotate(-35deg);
+            }
+        }
+
+        @keyframes scissorRight {
+
+            0%,
+            100% {
+                transform: rotate(15deg);
+            }
+
+            50% {
+                transform: rotate(35deg);
+            }
+        }
+
+        .cut-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-white);
+            transform: translate(-50%, -50%);
+            animation: cutLine 1.5s ease-in-out infinite;
+        }
+
+        @keyframes cutLine {
+
+            0%,
+            100% {
+                width: 0;
+                opacity: 0;
+            }
+
+            50% {
+                width: 150px;
+                opacity: 1;
+            }
+        }
+
+        .loader-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            opacity: 0;
+            animation: fadeInText 1.5s ease-in-out 0.3s forwards;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            animation: fadeInContent 0.8s ease-in-out 2.5s forwards;
+        }
+
+        @keyframes fadeInContent {
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 6px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .phone-link {
+            color: var(--primary-white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--primary-white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            letter-spacing: 4px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 18px 50px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid var(--primary-white);
+        }
+
+        .btn-primary {
+            background: var(--primary-white);
+            color: var(--primary-black);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-white);
+            color: var(--primary-black);
+        }
+
+        .hero-phone {
+            font-size: 24px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+        }
+
+        section {
+            padding: 100px 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-category h3 {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .packages-section-divide {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            transition: all 0.4s;
+        }
+
+        .package-card:hover {
+            border-color: var(--primary-white);
+            transform: translateY(-10px);
+        }
+
+        .package-name {
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .package-services {
+            list-style: none;
+            margin: 25px 0;
+            min-height: 130px;
+        }
+
+        .package-services li {
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .package-services li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+        }
+
+        .package-price {
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .package-btn {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            color: var(--primary-white);
+            border: 1px solid var(--primary-white);
+            font-size: 11px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .package-btn:hover {
+            background: var(--primary-white);
+            color: var(--primary-black);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            border: 1px solid var(--border-color);
+            padding: 35px;
+        }
+
+        .review-stars {
+            color: var(--primary-white);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            margin: 25px 0;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .contact-item a {
+            color: var(--primary-white);
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-content {
+            background: var(--primary-black);
+            border: 2px solid var(--primary-white);
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid var(--primary-white);
+            color: var(--primary-white);
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            background: var(--primary-white);
+            color: var(--primary-black);
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-white);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-white);
+            color: var(--primary-black);
+            border: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--primary-white);
+            border: 1px solid var(--primary-white);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+            letter-spacing: 2px;
+            display: none;
+        }
+
+        .form-message.success {
+            border-color: var(--primary-white);
+            display: block;
+        }
+
+        .form-message.error {
+            border-color: #ff0000;
+            display: block;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-white);
+            transition: all 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 998;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--primary-white);
+            text-decoration: none;
+            padding: 15px 0;
+            font-size: 14px;
+            letter-spacing: 3px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 1024px) {
+
+            .packages-grid,
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .section-title {
+                font-size: 36px;
+                letter-spacing: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: row;
+            }
+
+            .logo {
+                font-size: 22px;
+                letter-spacing: 4px;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .phone-link {
+                font-size: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 40px;
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+                margin-bottom: 15px;
+            }
+
+            .tagline {
+                font-size: 11px;
+                letter-spacing: 2px;
+                margin-bottom: 30px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 16px 40px;
+                font-size: 11px;
+            }
+
+            .hero-phone {
+                font-size: 18px;
+                letter-spacing: 2px;
+                margin-top: 20px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                letter-spacing: 4px;
+                margin-bottom: 40px;
+            }
+
+            .category-title {
+                font-size: 24px;
+                letter-spacing: 4px;
+                margin-bottom: 30px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .service-category h3 {
+                font-size: 22px;
+                letter-spacing: 4px;
+                margin-bottom: 25px;
+            }
+
+            .service-item {
+                padding: 15px 0;
+                font-size: 13px;
+            }
+
+            .packages-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .package-card {
+                padding: 30px 20px;
+            }
+
+            .package-name {
+                font-size: 20px;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
+
+            .package-services {
+                min-height: auto;
+                margin: 20px 0;
+            }
+
+            .package-services li {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+
+            .package-price {
+                font-size: 26px;
+                margin: 15px 0;
+            }
+
+            .package-btn {
+                padding: 14px;
+                font-size: 10px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gallery-item {
+                font-size: 10px;
+            }
+
+            .review-card {
+                padding: 25px 20px;
+            }
+
+            .review-stars {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
+            .review-text {
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .review-author {
+                font-size: 11px;
+            }
+
+            .contact-item {
+                font-size: 14px;
+                margin: 20px 0;
+            }
+
+            .modal {
+                padding: 0;
+            }
+
+            .modal-content {
+                padding: 35px 20px;
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+
+            .modal-title {
+                font-size: 24px;
+                letter-spacing: 4px;
+                margin-bottom: 30px;
+            }
+
+            .modal-close {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .submit-btn {
+                padding: 16px;
+                font-size: 11px;
+            }
+
+            .form-message {
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            footer {
+                padding: 30px 20px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+                letter-spacing: 3px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                letter-spacing: 3px;
+            }
+
+            .category-title {
+                font-size: 20px;
+                letter-spacing: 3px;
+            }
+
+            .package-card {
+                padding: 25px 15px;
+            }
+
+            .modal-content {
+                margin: 10px;
+                padding: 30px 15px;
+            }
+
+            .modal {
+                pointer-events: auto;
+            }
+
+            .modal-content {
+                position: relative;
+                z-index: 10000;
+                pointer-events: auto;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-container" id="loader">
+        <div class="scissor-animation">
+            <div class="scissor">
+                <div class="scissor-left"></div>
+                <div class="scissor-right"></div>
+            </div>
+            <div class="cut-line"></div>
+            <div class="loader-text">LUME</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">LUMÉ</div>
+        <div class="header-right">
+            <a href="tel:+919778756830" class="phone-link">+91 97787 56830</a>
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#services">SERVICES</a>
+                <a href="#packages">PACKAGES</a>
+                <a href="#gallery">GALLERY</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" onclick="closeMenu()">HOME</a>
+        <a href="#services" onclick="closeMenu()">SERVICES</a>
+        <a href="#packages" onclick="closeMenu()">PACKAGES</a>
+        <a href="#gallery" onclick="closeMenu()">GALLERY</a>
+        <a href="#contact" onclick="closeMenu()">CONTACT</a>
+    </div>
+
+    <section class="hero" id="home">
+        <h1>LUMÉ - THE UNISEX LOUNGE</h1>
+        <p class="tagline">LUXURY · MODERN · PROFESSIONAL</p>
+        <div class="hero-cta">
+            <button class="btn btn-primary" onclick="openModal()">BOOK APPOINTMENT</button>
+            <a href="https://wa.me/919778756830" class="btn btn-secondary" target="_blank">WHATSAPP NOW</a>
+        </div>
+        <div class="hero-phone">📞 +91 97787 56830</div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">SERVICES</h2>
+        <div class="services-container">
+            <div class="service-category">
+                <h3>GENTS</h3>
+                <ul class="service-list">
+                    <li class="service-item"><span>Haircut & Styling</span><span>Starting from ₹150</span></li>
+                    <li class="service-item"><span>Beard Grooming</span><span>Starting from ₹150</span></li>
+                    <li class="service-item"><span>Hair Wash & Blow Dry</span><span>Starting from ₹300</span></li>
+                    <li class="service-item"><span>Hair Colour & Highlights</span><span>Starting from ₹500</span></li>
+                    <li class="service-item"><span>Hair Spa & Treatments</span><span>Starting from ₹600</span></li>
+                    <li class="service-item"><span>Smoothening / Keratin / Botox</span><span>Starting from ₹2,000</span>
+                    </li>
+                    <li class="service-item"><span>Head Massage</span><span>Starting from ₹300</span></li>
+                    <li class="service-item"><span>Facials & Cleanup</span><span>Starting from ₹400</span></li>
+                    <li class="service-item"><span>Pedicure & Manicure</span><span>Starting from ₹500</span></li>
+                    <li class="service-item"><span>Groom Makeup</span><span>Starting from ₹5,000</span></li>
+                </ul>
+            </div>
+            <div class="service-category">
+                <h3>LADIES</h3>
+                <ul class="service-list">
+                    <li class="service-item"><span>Haircut & Styling</span><span>Starting from ₹300</span></li>
+                    <li class="service-item"><span>Hair Wash, Blow Dry, Styling</span><span>Starting from ₹300</span>
+                    </li>
+                    <li class="service-item"><span>Hair Colour</span><span>Starting from ₹800</span></li>
+                    <li class="service-item"><span>Highlights / Balayage / Ombre</span><span>Starting from ₹3,000</span>
+                    </li>
+                    <li class="service-item"><span>Smoothening / Straightening</span><span>Starting from ₹3,000</span>
+                    </li>
+                    <li class="service-item"><span>Keratin / Nano Plastia / Botox</span><span>Starting from
+                            ₹6,000</span></li>
+                    <li class="service-item"><span>Hair Spa</span><span>Starting from ₹800</span></li>
+                    <li class="service-item"><span>Head Massage</span><span>Starting from ₹400</span></li>
+                    <li class="service-item"><span>Threading & Cleanup</span><span>Starting from ₹50</span></li>
+                    <li class="service-item"><span>Detan</span><span>Starting from ₹400</span></li>
+                    <li class="service-item"><span>Facials</span><span>Starting from ₹700</span></li>
+                    <li class="service-item"><span>Pedicure & Manicure</span><span>Starting from ₹500</span></li>
+                    <li class="service-item"><span>Nail Services</span><span>Starting from ₹199</span></li>
+                    <li class="service-item"><span>Waxing & Body Polishing</span><span>Starting from ₹500</span></li>
+                    <li class="service-item"><span>Party Makeup</span><span>Starting from ₹3,000</span></li>
+                    <li class="service-item"><span>Bridal Makeup</span><span>Starting from ₹8,000</span></li>
+                    <li class="service-item"><span>Saree Draping</span><span>Starting from ₹500</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages">
+        <h2 class="section-title">PACKAGES</h2>
+
+        <div class="packages-section-divide">
+            <h3 class="category-title">GENTS PACKAGES</h3>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h4 class="package-name">BASIC GROOMING</h4>
+                    <ul class="package-services">
+                        <li>Haircut</li>
+                        <li>Beard Grooming</li>
+                        <li>Hair Wash</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹500</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">PREMIUM GROOMING COMBO</h4>
+                    <ul class="package-services">
+                        <li>Haircut</li>
+                        <li>Facial</li>
+                        <li>Head Massage</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹1,500</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">SPA & RELAX</h4>
+                    <ul class="package-services">
+                        <li>Hair Spa</li>
+                        <li>Massage</li>
+                        <li>Hair Masque</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹2,500</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">PRE-GROOM</h4>
+                    <ul class="package-services">
+                        <li>Haircut</li>
+                        <li>Facial & Detan</li>
+                        <li>Pedicure & Manicure</li>
+                        <li>Hair Spa</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹4,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">WEDDING GROOM</h4>
+                    <ul class="package-services">
+                        <li>Complete Grooming</li>
+                        <li>Professional Makeup</li>
+                        <li>Styling Services</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹6,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="packages-section-divide">
+            <h3 class="category-title">LADIES PACKAGES</h3>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h4 class="package-name">HAIR CARE</h4>
+                    <ul class="package-services">
+                        <li>Haircut</li>
+                        <li>Hair Spa</li>
+                        <li>Styling</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹1,500</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">SKIN GLOW</h4>
+                    <ul class="package-services">
+                        <li>Facial</li>
+                        <li>Cleanup</li>
+                        <li>Detan</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹2,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">SPA & RELAX</h4>
+                    <ul class="package-services">
+                        <li>Massage</li>
+                        <li>Pedicure</li>
+                        <li>Manicure</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹2,500</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">PARTY READY</h4>
+                    <ul class="package-services">
+                        <li>Makeup</li>
+                        <li>Hair Styling</li>
+                        <li>Saree Draping</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹4,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">BRIDAL BEAUTY</h4>
+                    <ul class="package-services">
+                        <li>Bridal Makeup</li>
+                        <li>Hair Styling</li>
+                        <li>Skin Preparation</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹10,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+                <div class="package-card">
+                    <h4 class="package-name">PRE-BRIDE</h4>
+                    <ul class="package-services">
+                        <li>Hair Care</li>
+                        <li>Skin Treatments</li>
+                        <li>Body Care</li>
+                        <li>Nail Services</li>
+                    </ul>
+                    <div class="package-price">Starting from ₹12,000</div>
+                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="packages-section-divide">
+            <h3 class="category-title">BRIDE & GROOM SPECIAL</h3>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+                <p style="font-size: 16px; letter-spacing: 2px; line-height: 1.8; opacity: 0.9; margin-bottom: 30px;">
+                    Make your special day unforgettable with our premium bridal and groom services. We offer HD,
+                    Airbrush, and Glass makeup finishes, complete styling, and personalized packages tailored to your
+                    needs.
+                </p>
+                <p style="font-size: 14px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 30px;">
+                    Custom packages available on enquiry
+                </p>
+                <button class="btn btn-primary" onclick="openModal()">BOOK CONSULTATION</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">GALLERY</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">BEFORE/AFTER 1</div>
+            <div class="gallery-item">BEFORE/AFTER 2</div>
+            <div class="gallery-item">BEFORE/AFTER 3</div>
+            <div class="gallery-item">BEFORE/AFTER 4</div>
+            <div class="gallery-item">STYLE 1</div>
+            <div class="gallery-item">STYLE 2</div>
+            <div class="gallery-item">STYLE 3</div>
+            <div class="gallery-item">STYLE 4</div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2 class="section-title">REVIEWS</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Amazing service! The stylist understood exactly what I wanted. Best salon
+                    experience in town.</p>
+                <p class="review-author">- RAHUL SHARMA</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">My bridal makeup was absolutely stunning. They made my special day even more
+                    memorable. Highly recommend!</p>
+                <p class="review-author">- PRIYA REDDY</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Professional staff, clean environment, and great results every time. This is my
+                    go-to salon now.</p>
+                <p class="review-author">- AMIT PATEL</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">CONTACT US</h2>
+        <div class="contact-info">
+            <div class="contact-item">📍 123 Main Street, Kochi, Kerala 682001</div>
+            <div class="contact-item">📞 <a href="tel:+919778756830">+91 97787 56830</a></div>
+            <div class="contact-item">✉️ <a href="mailto:info@lumelounge.com">info@lumelounge.com</a></div>
+            <div class="contact-item">🕒 Open: 9:00 AM - 8:00 PM (Mon - Sun)</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 LUMÉ – THE UNISEX LOUNGE · ALL RIGHTS RESERVED</p>
+        <p style="margin-top: 10px; font-size: 11px;">📞 +91 97787 56830</p>
+    </footer>
+
+    <div class="modal" id="appointmentModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h3 class="modal-title">BOOK APPOINTMENT</h3>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">FULL NAME *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">PHONE NUMBER *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">GENDER *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Gents">Gents</option>
+                        <option value="Ladies">Ladies</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="purpose">PURPOSE *</label>
+                    <select id="purpose" name="purpose" required>
+                        <option value="">Select Service</option>
+                        <option value="Haircut">Haircut</option>
+                        <option value="Beard Styling">Beard Styling</option>
+                        <option value="Facial">Facial</option>
+                        <option value="Hair Spa">Hair Spa</option>
+                        <option value="Bridal Makeup">Bridal Makeup</option>
+                        <option value="Party Makeup">Party Makeup</option>
+                        <option value="Saree Draping">Saree Draping</option>
+                        <option value="Groom Package">Groom Package</option>
+                        <option value="Tattoo">Tattoo</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">PREFERRED DATE</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="time">PREFERRED TIME</label>
+                    <input type="time" id="time" name="time" step="60">
+                </div>
+                <div class="form-group">
+                    <label for="message">MESSAGE (OPTIONAL)</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">SUBMIT ENQUIRY</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        let clientIP = "Unknown";
+
+        fetch("https://api.ipify.org?format=json")
+            .then(res => res.json())
+            .then(data => {
+                clientIP = data.ip;
+            })
+            .catch(() => {
+                clientIP = "Unavailable";
+            });
+
+        function convertTo24Hour(time12h) {
+            const [time, modifier] = time12h.split(" ");
+            let [hours, minutes] = time.split(":");
+
+            hours = parseInt(hours, 10);
+
+            if (modifier === "PM" && hours !== 12) {
+                hours += 12;
+            }
+            if (modifier === "AM" && hours === 12) {
+                hours = 0;
+            }
+
+            return `${hours.toString().padStart(2, "0")}:${minutes}`;
+        }
+
+
+        // Loading animation
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loader').classList.add('fade-out');
+            }, 2500);
+        });
+
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader-container");
+            if (loader) loader.remove();
+        });
+
+
+
+        // Mobile menu functions
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('appointmentModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('appointmentModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission
+        document.getElementById('appointmentForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            let timeValue = document.getElementById("time").value;
+
+
+            if (!timeValue) {
+                alert("Please select a preferred time");
+                return;
+            }
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING...';
+            formMessage.style.display = 'none';
+
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                gender: document.getElementById('gender').value,
+                purpose: document.getElementById('purpose').value,
+                date: document.getElementById('date').value,
+                time: timeValue,
+                message: document.getElementById('message').value,
+                ip: clientIP,
+                timestamp: new Date().toLocaleString()
+            };
+
+            try {
+                // Replace with your Google Apps Script Web App URL
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwrC1JaitfoD4BUVcFKn-STATd1r113jOxOalo2Rx3RLMaESRQil_yNeCjSjVL61WBbhw/exec';
+
+                const formBody = new URLSearchParams(formData);
+
+                const response = await fetch(scriptURL, {
+                    method: "POST",
+                    body: formBody
+                });
+
+
+                if (response.ok) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Thank you! Your appointment request has been received. We will contact you soon.';
+                    document.getElementById('appointmentForm').reset();
+
+                    setTimeout(() => {
+                        closeModal();
+                        formMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = 'Sorry, there was an error. Please call us directly at +91 98765 43210';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SUBMIT ENQUIRY';
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('appointmentModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu.classList.contains('active') &&
+                !menu.contains(e.target) &&
+                !toggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+
+</html>
