@@ -215,15 +215,30 @@
             opacity: 0.6;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 120px 20px 60px;
-        }
+       .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 120px 20px 60px;
+
+  /* 🔥 Background image */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("hero.jpg"); /* change path */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+}
+
 
         .hero h1 {
             font-size: 72px;
@@ -993,56 +1008,50 @@
         <div class="hero-cta">
             <button class="btn btn-primary" onclick="openModal('appointment')">BOOK APPOINTMENT</button>
             <a href="https://wa.me/919778756830" class="btn btn-secondary" target="_blank">WHATSAPP NOW</a>
+          
+
         </div>
     </section>
 
     <section id="services">
-        <h2 class="section-title">SERVICES</h2>
-        <div class="services-container">
-            <div class="service-category">
-                <h3>GENTS</h3>
-                <ul class="service-list">
-                    <li class="service-item"><span>Haircut & Styling</span><span>Starting from ₹150</span></li>
-                    <li class="service-item"><span>Beard Grooming</span><span>Starting from ₹150</span></li>
-                    <li class="service-item"><span>Hair Wash & Blow Dry</span><span>Starting from ₹300</span></li>
-                    <li class="service-item"><span>Hair Colour & Highlights</span><span>Starting from ₹500</span></li>
-                    <li class="service-item"><span>Hair Spa & Treatments</span><span>Starting from ₹600</span></li>
-                    <li class="service-item"><span>Smoothening / Keratin / Botox</span><span>Starting from ₹2,000</span>
-                    </li>
-                    <li class="service-item"><span>Head Massage</span><span>Starting from ₹300</span></li>
-                    <li class="service-item"><span>Facials & Cleanup</span><span>Starting from ₹400</span></li>
-                    <li class="service-item"><span>Pedicure & Manicure</span><span>Starting from ₹500</span></li>
-                    <li class="service-item"><span>Groom Makeup</span><span>Starting from ₹5,000</span></li>
-                </ul>
-            </div>
-            <div class="service-category">
-                <h3>LADIES</h3>
-                <ul class="service-list">
-                    <li class="service-item"><span>Haircut & Styling</span><span>Starting from ₹300</span></li>
-                    <li class="service-item"><span>Hair Wash, Blow Dry, Styling</span><span>Starting from ₹300</span>
-                    </li>
-                    <li class="service-item"><span>Hair Colour</span><span>Starting from ₹800</span></li>
-                    <li class="service-item"><span>Highlights / Balayage / Ombre</span><span>Starting from ₹3,000</span>
-                    </li>
-                    <li class="service-item"><span>Smoothening / Straightening</span><span>Starting from ₹3,000</span>
-                    </li>
-                    <li class="service-item"><span>Keratin / Nano Plastia / Botox</span><span>Starting from
-                            ₹6,000</span></li>
-                    <li class="service-item"><span>Hair Spa</span><span>Starting from ₹800</span></li>
-                    <li class="service-item"><span>Head Massage</span><span>Starting from ₹400</span></li>
-                    <li class="service-item"><span>Threading & Cleanup</span><span>Starting from ₹50</span></li>
-                    <li class="service-item"><span>Detan</span><span>Starting from ₹400</span></li>
-                    <li class="service-item"><span>Facials</span><span>Starting from ₹700</span></li>
-                    <li class="service-item"><span>Pedicure & Manicure</span><span>Starting from ₹500</span></li>
-                    <li class="service-item"><span>Nail Services</span><span>Starting from ₹199</span></li>
-                    <li class="service-item"><span>Waxing & Body Polishing</span><span>Starting from ₹500</span></li>
-                    <li class="service-item"><span>Party Makeup</span><span>Starting from ₹3,000</span></li>
-                    <li class="service-item"><span>Bridal Makeup</span><span>Starting from ₹8,000</span></li>
-                    <li class="service-item"><span>Saree Draping</span><span>Starting from ₹500</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <h2 class="section-title">OUR SERVICES</h2>
+
+  <div class="services-container simple">
+
+    <div class="service-category">
+      <h3>GENTS</h3>
+      <ul class="service-list">
+        <li>Haircut & Styling</li>
+        <li>Beard Grooming</li>
+        <li>Hair Treatments</li>
+        <li>Hair Colour</li>
+        <li>Facials & Skin Care</li>
+        <li>Head Massage</li>
+        <li>Pedicure & Manicure</li>
+        <li>Groom Makeup</li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>LADIES</h3>
+      <ul class="service-list">
+        <li>Haircut & Styling</li>
+        <li>Hair Colour & Highlights</li>
+        <li>Smoothening & Keratin</li>
+        <li>Hair Spa & Treatments</li>
+        <li>Facials & Skin Care</li>
+        <li>Threading & Detan</li>
+        <li>Nail Services</li>
+        <li>Waxing & Body Care</li>
+        <li>Party & Bridal Makeup</li>
+        <li>Saree Draping</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
 
     <section id="packages">
         <h2 class="section-title">PACKAGES</h2>
@@ -1206,21 +1215,18 @@
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">Amazing service! The stylist understood exactly what I wanted. Best salon
-                    experience in town.</p>
-                <p class="review-author">- RAHUL SHARMA</p>
+                <p class="review-text">Very Nice Experience....Excellent staff service, especially hair cut and hair massage.I am very happy and 100 % satisfied in your services...and also very comfortable environment.Thank youuu soo much for your valid services.</p>
+                <p class="review-author">- Neena Binoy</p>
             </div>
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">My bridal makeup was absolutely stunning. They made my special day even more
-                    memorable. Highly recommend!</p>
-                <p class="review-author">- PRIYA REDDY</p>
+                <p class="review-text">My son's hair cut was done very well. Good ambience and good service especially Anees.. thanks for your service</p>
+                <p class="review-author">- Dileep Louis</p>
             </div>
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">Professional staff, clean environment, and great results every time. This is my
-                    go-to salon now.</p>
-                <p class="review-author">- AMIT PATEL</p>
+                <p class="review-text">The salon is impeccably hygienic and the equipment was clean", "I am very happy with the results and will come back again for sure</p>
+                <p class="review-author">- Roshan T.S</p>
             </div>
         </div>
     </section>
@@ -1230,7 +1236,7 @@
         <div class="contact-info">
             <div class="contact-item">📍 Bypass, opp. Cloud 9 Hotel, Thankalam, Kothamangalam, Kerala 686691</div>
             <div class="contact-item">📞 <a href="tel:+919778756830">+91 97787 56830</a></div>
-            <div class="contact-item">✉️ <a href="mailto:info@lumelounge.com">info@lumelounge.com</a></div>
+            <div class="contact-item">✉️ <a href="mailto:info@lumelounge.com">lumeunisexlongue@gmail.com</a></div>
             <div class="contact-item">🕒 Open: 9:30 AM - 9:30 PM (Mon - Sun)</div>
         </div>
     </section>
@@ -1241,8 +1247,8 @@
             Designed &amp; developed by
             <a href="https://www.linkedin.com/in/eldho-thampi" target="_blank" rel="noopener noreferrer"
                 style="color: inherit; text-decoration: none;">
-                Eldho
-            </a>.
+                Eldho.
+            </a>
         </p>
 
     </footer>
@@ -1472,7 +1478,7 @@
             try {
 
                 // Replace with your Google Apps Script Web App URL
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxAIRD-2aXUaTc7DR6B4MiU-Nke3NCK_E-wOVgh9pmlRmtFU9iftPS4VCxP45LjIfkySQ/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwrC1JaitfoD4BUVcFKn-STATd1r113jOxOalo2Rx3RLMaESRQil_yNeCjSjVL61WBbhw/exec';
 
                 const formBody = new URLSearchParams(formData);
 
