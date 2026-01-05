@@ -765,7 +765,7 @@
             }
 
             section {
-                padding: 50px 20px;
+                padding: 50px 8px;
             }
 
             .section-title {
@@ -1524,7 +1524,8 @@
             border-color: var(--border-color) !important;
         }
 
-        .btn-secondary {
+        .btn-secondary,
+        .submit-btn {
             background-color: transparent !important;
             color: var(--border-color) !important;
             /* gold text */
@@ -1534,7 +1535,9 @@
         }
 
         .btn-secondary:hover,
-        .btn-secondary:focus {
+        .btn-secondary:focus,
+        .submit-btn:hover,
+        .submit-btn:focus {
             background-color: var(--border-color) !important;
             color: var(--primary-black) !important;
             border-color: var(--border-color) !important;
@@ -1563,7 +1566,7 @@
 
         @media (max-width: 768px) {
             .services-modern {
-                padding-top: 100px;
+                padding-top: 50px;
             }
 
             .form-group input,
