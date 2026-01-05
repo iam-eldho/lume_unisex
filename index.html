@@ -445,17 +445,22 @@
     <div class="modal" id="appointmentModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">×</button>
-            <h3 class="modal-title">BOOK APPOINTMENT</h3>
+
+            <!-- ✅ ONLY ONE TITLE -->
+            <h3 class="modal-title" id="modalTitle">BOOK APPOINTMENT</h3>
+
             <form id="appointmentForm">
                 <div class="form-group">
                     <label for="name">FULL NAME *</label>
                     <input type="text" id="name" name="name" required>
                 </div>
+
                 <div class="form-group">
                     <label for="phone">PHONE NUMBER *</label>
                     <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]*"
                         inputmode="numeric" maxlength="10">
                 </div>
+
                 <div class="form-group">
                     <label for="gender">GENDER *</label>
                     <select id="gender" name="gender" required>
@@ -464,6 +469,7 @@
                         <option value="Ladies">Ladies</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="purpose">PURPOSE *</label>
                     <select id="purpose" name="purpose" required>
@@ -480,11 +486,14 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
+
                 <input type="hidden" id="requestType" name="requestType" value="Appointment">
+
                 <div class="form-group" id="dateGroup" style="display:none;">
                     <label for="date">PREFERRED DATE</label>
                     <input type="date" id="date" name="date">
                 </div>
+
                 <div class="form-group" id="timeGroup" style="display:none;">
                     <label for="time">PREFERRED TIME</label>
                     <input type="time" id="time" name="time" min="09:30" max="21:30" required>
@@ -497,11 +506,16 @@
                     <label for="message">MESSAGE (OPTIONAL)</label>
                     <textarea id="message" name="message"></textarea>
                 </div>
-                <button type="submit" class="submit-btn" id="submitBtn">SUBMIT ENQUIRY</button>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    SUBMIT ENQUIRY
+                </button>
+
                 <div class="form-message" id="formMessage"></div>
             </form>
         </div>
     </div>
+
     <script src="./script//script.js"></script>
 </body>
 
