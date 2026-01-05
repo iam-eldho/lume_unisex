@@ -1560,9 +1560,3 @@
             color: var(--border-color);
             border-color: var(--border-color);
         }
-
-         @media (max-width: 768px) {
-            .services-modern {
-                padding-top: 100px;
-            }
-        }
