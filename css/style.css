@@ -704,222 +704,221 @@
 
         @media (max-width: 768px) {
             header {
-                padding-left: 12px;
-                padding-right: 12px;
+                padding: 15px 20px;
+                flex-direction: row;
             }
-        }
 
-        .logo {
-            font-size: 22px;
-            letter-spacing: 4px;
-        }
+            .logo {
+                font-size: 22px;
+                letter-spacing: 4px;
+            }
 
-        .header-right {
-            display: none;
-        }
+            .header-right {
+                display: none;
+            }
 
-        .menu-toggle {
-            display: flex;
-        }
+            .menu-toggle {
+                display: flex;
+            }
 
-        .phone-link {
-            font-size: 12px;
-        }
+            .phone-link {
+                font-size: 12px;
+            }
 
-        nav {
-            display: none;
-        }
+            nav {
+                display: none;
+            }
 
-        .hero {
-            padding: 100px 20px 40px;
-            min-height: 80vh;
-        }
+            .hero {
+                padding: 100px 20px 40px;
+                min-height: 80vh;
+            }
 
-        .hero h1 {
-            font-size: 36px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
+            .hero h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+                margin-bottom: 15px;
+            }
 
-        .tagline {
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
+            .tagline {
+                font-size: 11px;
+                letter-spacing: 2px;
+                margin-bottom: 30px;
+            }
 
-        .hero-cta {
-            flex-direction: column;
-            width: 100%;
-            gap: 15px;
-        }
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
 
-        .btn {
-            width: 100%;
-            padding: 16px 40px;
-            font-size: 11px;
-        }
+            .btn {
+                width: 100%;
+                padding: 16px 40px;
+                font-size: 11px;
+            }
 
-        .hero-phone {
-            font-size: 18px;
-            letter-spacing: 2px;
-            margin-top: 20px;
-        }
+            .hero-phone {
+                font-size: 18px;
+                letter-spacing: 2px;
+                margin-top: 20px;
+            }
 
-        section {
-            padding: 50px 20px;
-        }
+            section {
+                padding: 50px 20px;
+            }
 
-        .section-title {
-            font-size: 28px;
-            letter-spacing: 4px;
-            margin-bottom: 40px;
-        }
+            .section-title {
+                font-size: 28px;
+                letter-spacing: 4px;
+                margin-bottom: 40px;
+            }
 
-        .category-title {
-            font-size: 24px;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-        }
+            .category-title {
+                font-size: 24px;
+                letter-spacing: 4px;
+                margin-bottom: 30px;
+            }
 
-        .services-container {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
+            .services-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
 
-        .service-category h3 {
-            font-size: 22px;
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-        }
+            .service-category h3 {
+                font-size: 22px;
+                letter-spacing: 4px;
+                margin-bottom: 25px;
+            }
 
-        .service-item {
-            padding: 15px 0;
-            font-size: 13px;
-        }
+            .service-item {
+                padding: 15px 0;
+                font-size: 13px;
+            }
 
-        .packages-grid,
-        .reviews-grid {
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
+            .packages-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
 
-        .package-card {
-            padding: 30px 20px;
-        }
+            .package-card {
+                padding: 30px 20px;
+            }
 
-        .package-name {
-            font-size: 20px;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
+            .package-name {
+                font-size: 20px;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
 
-        .package-services {
-            min-height: auto;
-            margin: 20px 0;
-        }
+            .package-services {
+                min-height: auto;
+                margin: 20px 0;
+            }
 
-        .package-services li {
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
+            .package-services li {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
 
-        .package-price {
-            font-size: 26px;
-            margin: 15px 0;
-        }
+            .package-price {
+                font-size: 26px;
+                margin: 15px 0;
+            }
 
-        .package-btn {
-            padding: 14px;
-            font-size: 10px;
-        }
+            .package-btn {
+                padding: 14px;
+                font-size: 10px;
+            }
 
-        .gallery-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
 
-        .gallery-item {
-            font-size: 10px;
-        }
+            .gallery-item {
+                font-size: 10px;
+            }
 
-        .review-card {
-            padding: 25px 20px;
-        }
+            .review-card {
+                padding: 25px 20px;
+            }
 
-        .review-stars {
-            font-size: 16px;
-            margin-bottom: 12px;
-        }
+            .review-stars {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
 
-        .review-text {
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+            .review-text {
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
 
-        .review-author {
-            font-size: 11px;
-        }
+            .review-author {
+                font-size: 11px;
+            }
 
-        .contact-item {
-            font-size: 14px;
-            margin: 20px 0;
-        }
+            .contact-item {
+                font-size: 14px;
+                margin: 20px 0;
+            }
 
-        .modal {
-            padding: 0;
-        }
+            .modal {
+                padding: 0;
+            }
 
-        .modal-content {
-            padding: 35px 20px;
-            margin: 20px;
-            max-width: calc(100% - 40px);
-        }
+            .modal-content {
+                padding: 35px 20px;
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
 
-        .modal-title {
-            font-size: 24px;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-        }
+            .modal-title {
+                font-size: 24px;
+                letter-spacing: 4px;
+                margin-bottom: 30px;
+            }
 
-        .modal-close {
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
-            top: 15px;
-            right: 15px;
-        }
+            .modal-close {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+                top: 15px;
+                right: 15px;
+            }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+            .form-group {
+                margin-bottom: 20px;
+            }
 
-        .form-group label {
-            font-size: 11px;
-            margin-bottom: 8px;
-        }
+            .form-group label {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 12px;
-            font-size: 13px;
-        }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 13px;
+            }
 
-        .submit-btn {
-            padding: 16px;
-            font-size: 11px;
-        }
+            .submit-btn {
+                padding: 16px;
+                font-size: 11px;
+            }
 
-        .form-message {
-            font-size: 12px;
-            padding: 15px;
-        }
+            .form-message {
+                font-size: 12px;
+                padding: 15px;
+            }
 
-        footer {
-            padding: 30px 20px;
-            font-size: 10px;
-        }
+            footer {
+                padding: 30px 20px;
+                font-size: 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1336,102 +1335,99 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             body {
-                padding: 0;
-                margin: 0;
+                padding: 20px 10px;
             }
-        }
 
+            .services-header {
+                margin-bottom: 50px;
+            }
 
-        .services-header {
-            margin-bottom: 50px;
-        }
+            .services-header h2 {
+                font-size: 28px;
+                letter-spacing: 4px;
+                margin-bottom: 12px;
+            }
 
-        .services-header h2 {
-            font-size: 28px;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-        }
+            .services-header p {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
 
-        .services-header p {
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
+            .services-grid {
+                gap: 30px;
+            }
 
-        .services-grid {
-            gap: 30px;
-        }
+            .panel-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-bottom: 30px;
+                padding-bottom: 15px;
+            }
 
-        .panel-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-        }
+            .service-panel {
+                padding: 30px 20px;
+            }
 
-        .service-panel {
-            padding: 30px 20px;
-        }
+            .panel-title {
+                font-size: 22px;
+                letter-spacing: 4px;
+            }
 
-        .panel-title {
-            font-size: 22px;
-            letter-spacing: 4px;
-        }
+            .panel-badge {
+                font-size: 9px;
+                padding: 5px 12px;
+            }
 
-        .panel-badge {
-            font-size: 9px;
-            padding: 5px 12px;
-        }
+            .service-group {
+                margin-bottom: 25px;
+            }
 
-        .service-group {
-            margin-bottom: 25px;
-        }
+            .group-label {
+                font-size: 10px;
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+            }
 
-        .group-label {
-            font-size: 10px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
+            .service-item-modern {
+                font-size: 13px;
+                padding: 10px 0;
+                padding-left: 20px;
+            }
 
-        .service-item-modern {
-            font-size: 13px;
-            padding: 10px 0;
-            padding-left: 20px;
-        }
+            .service-item-modern::before {
+                width: 10px;
+            }
 
-        .service-item-modern::before {
-            width: 10px;
-        }
+            .service-item-modern:hover {
+                padding-left: 25px;
+            }
 
-        .service-item-modern:hover {
-            padding-left: 25px;
-        }
+            .services-cta {
+                margin-top: 50px;
+                padding: 40px 15px;
+            }
 
-        .services-cta {
-            margin-top: 50px;
-            padding: 40px 15px;
-        }
+            .cta-text {
+                font-size: 14px;
+                letter-spacing: 2px;
+                margin-bottom: 25px;
+            }
 
-        .cta-text {
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
 
-        .cta-buttons {
-            flex-direction: column;
-            width: 100%;
-            gap: 15px;
-        }
-
-        .btn-cta {
-            width: 100%;
-            padding: 16px 40px;
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
+            .btn-cta {
+                width: 100%;
+                padding: 16px 40px;
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1566,33 +1562,7 @@
         }
 
         @media (max-width: 768px) {
-            section {
-                padding-left: 8px;
-                padding-right: 8px;
+            .services-modern {
+                padding-top: 100px;
             }
-
-            @media (max-width: 768px) {
-                body {
-                    margin: 0;
-                    padding: 0;
-                }
-
-                header,
-                section {
-                    padding-left: 12px !important;
-                    padding-right: 12px !important;
-                }
-
-                .services-modern,
-                .gallery-grid,
-                .services-grid,
-                .packages-grid,
-                .reviews-grid,
-                .contact-info {
-                    width: 100%;
-                    padding-left: 0 !important;
-                    padding-right: 0 !important;
-                }
-            }
-
         }
