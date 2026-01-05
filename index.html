@@ -1460,48 +1460,49 @@
             }
         }
 
-  .gallery-carousel {
-  overflow: hidden;
-  width: 100%;
-}
+        .gallery-carousel {
+            overflow: hidden;
+            width: 100%;
+        }
 
-.carousel-track {
-  display: flex;
-  gap: 16px;
-  animation: autoScroll 20s linear infinite;
-}
+        .carousel-track {
+            display: flex;
+            gap: 16px;
+            animation: autoScroll 20s linear infinite;
+        }
 
-.carousel-item {
-  width: 240px;      /* same as old gallery */
-  height: 240px;     /* same as old gallery */
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
+        .carousel-item {
+            width: 240px;
+            /* same as old gallery */
+            height: 240px;
+            /* same as old gallery */
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-}
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
 
-/* Pause on hover (desktop UX) */
-.gallery-carousel:hover .carousel-track {
-  animation-play-state: paused;
-}
+        /* Pause on hover (desktop UX) */
+        .gallery-carousel:hover .carousel-track {
+            animation-play-state: paused;
+        }
 
-/* Smooth infinite scroll */
-@keyframes autoScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+        /* Smooth infinite scroll */
+        @keyframes autoScroll {
+            0% {
+                transform: translateX(0);
+            }
 
-
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 
@@ -1552,328 +1553,330 @@
     <section class="services-modern" id="services">
 
 
-        <h2 class="section-title">OUR SERVICES</h2>
-        <div class="packages-section-divide">
-            <h3 class="category-title">EXPERT CARE FOR EVERYONE</h3>
+        <h3 class="category-title">OUR SERVICES</h2>
+            <div class="packages-section-divide">
+                <h5 class="category-title">EXPERT CARE FOR EVERYONE</h5>
 
-            <div class="services-grid">
+                <div class="services-grid">
 
-                <!-- GENTS Panel -->
-                <div class="service-panel">
-                    <div class="panel-header">
-                        <h3 class="panel-title">GENTS</h3>
-                        <span class="panel-badge">FOR HIM</span>
+                    <!-- GENTS Panel -->
+                    <div class="service-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">GENTS</h3>
+                            <span class="panel-badge">FOR HIM</span>
+                        </div>
+
+                        <!-- Hair Services -->
+                        <div class="service-group">
+                            <div class="group-label">Hair & Grooming</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Haircut & Styling</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Beard Grooming</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Hair Treatments</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Hair Colour</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Skin & Body Services -->
+                        <div class="service-group">
+                            <div class="group-label">Skin & Body Care</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Facials & Skin Care</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Head Massage</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Pedicure & Manicure</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Special Services -->
+                        <div class="service-group">
+                            <div class="group-label">Special Occasions</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Groom Makeup</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Hair Services -->
-                    <div class="service-group">
-                        <div class="group-label">Hair & Grooming</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Haircut & Styling</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Beard Grooming</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Hair Treatments</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Hair Colour</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <!-- LADIES Panel -->
+                    <div class="service-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">LADIES</h3>
+                            <span class="panel-badge">FOR HER</span>
+                        </div>
 
-                    <!-- Skin & Body Services -->
-                    <div class="service-group">
-                        <div class="group-label">Skin & Body Care</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Facials & Skin Care</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Head Massage</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Pedicure & Manicure</span>
-                            </li>
-                        </ul>
-                    </div>
+                        <!-- Hair Services -->
+                        <div class="service-group">
+                            <div class="group-label">Hair Services</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Haircut & Styling</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Hair Colour & Highlights</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Smoothening & Keratin</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Hair Spa & Treatments</span>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <!-- Special Services -->
-                    <div class="service-group">
-                        <div class="group-label">Special Occasions</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Groom Makeup</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                        <!-- Skin & Beauty -->
+                        <div class="service-group">
+                            <div class="group-label">Skin & Beauty</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Facials & Skin Care</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Threading & Detan</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Waxing & Body Care</span>
+                                </li>
+                            </ul>
+                        </div>
 
-                <!-- LADIES Panel -->
-                <div class="service-panel">
-                    <div class="panel-header">
-                        <h3 class="panel-title">LADIES</h3>
-                        <span class="panel-badge">FOR HER</span>
-                    </div>
-
-                    <!-- Hair Services -->
-                    <div class="service-group">
-                        <div class="group-label">Hair Services</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Haircut & Styling</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Hair Colour & Highlights</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Smoothening & Keratin</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Hair Spa & Treatments</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Skin & Beauty -->
-                    <div class="service-group">
-                        <div class="group-label">Skin & Beauty</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Facials & Skin Care</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Threading & Detan</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Waxing & Body Care</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Special Services -->
-                    <div class="service-group">
-                        <div class="group-label">Special Occasions</div>
-                        <ul class="service-items">
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Party & Bridal Makeup</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Nail Services</span>
-                            </li>
-                            <li class="service-item-modern">
-                                <span class="service-icon"></span>
-                                <span class="service-name-text">Saree Draping</span>
-                            </li>
-                        </ul>
+                        <!-- Special Services -->
+                        <div class="service-group">
+                            <div class="group-label">Special Occasions</div>
+                            <ul class="service-items">
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Party & Bridal Makeup</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Nail Services</span>
+                                </li>
+                                <li class="service-item-modern">
+                                    <span class="service-icon"></span>
+                                    <span class="service-name-text">Saree Draping</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <section id="packages">
-        <h2 class="section-title">PACKAGES</h2>
-        <div class="packages-section-divide">
-            <h3 class="category-title">GENTS PACKAGES</h3>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h4 class="package-name">BASIC GROOMING</h4>
-                    <ul class="package-services">
-                        <li>Haircut</li>
-                        <li>Beard Grooming</li>
-                        <li>Hair Wash</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹500</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">PREMIUM GROOMING</h4>
-                    <ul class="package-services">
-                        <li>Haircut</li>
-                        <li>Facial</li>
-                        <li>Head Massage</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹1,500</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">SPA & RELAX</h4>
-                    <ul class="package-services">
-                        <li>Hair Spa</li>
-                        <li>Massage</li>
-                        <li>Hair Masque</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹2,500</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">PRE-GROOM</h4>
-                    <ul class="package-services">
-                        <li>Haircut</li>
-                        <li>Facial & Detan</li>
-                        <li>Pedicure & Manicure</li>
-                        <li>Hair Spa</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹4,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">WEDDING GROOM</h4>
-                    <ul class="package-services">
-                        <li>Complete Grooming</li>
-                        <li>Professional Makeup</li>
-                        <li>Styling Services</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹6,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+        <h3 class="category-title">PACKAGES</h2>
+            <div class="packages-section-divide">
+                <h3 class="category-title">GENTS PACKAGES</h3>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <h4 class="package-name">BASIC GROOMING</h4>
+                        <ul class="package-services">
+                            <li>Haircut</li>
+                            <li>Beard Grooming</li>
+                            <li>Hair Wash</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹500</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">PREMIUM GROOMING</h4>
+                        <ul class="package-services">
+                            <li>Haircut</li>
+                            <li>Facial</li>
+                            <li>Head Massage</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹1,500</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">SPA & RELAX</h4>
+                        <ul class="package-services">
+                            <li>Hair Spa</li>
+                            <li>Massage</li>
+                            <li>Hair Masque</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹2,500</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">PRE-GROOM</h4>
+                        <ul class="package-services">
+                            <li>Haircut</li>
+                            <li>Facial & Detan</li>
+                            <li>Pedicure & Manicure</li>
+                            <li>Hair Spa</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹4,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">WEDDING GROOM</h4>
+                        <ul class="package-services">
+                            <li>Complete Grooming</li>
+                            <li>Professional Makeup</li>
+                            <li>Styling Services</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹6,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="packages-section-divide">
-            <h3 class="category-title">LADIES PACKAGES</h3>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h4 class="package-name">HAIR CARE</h4>
-                    <ul class="package-services">
-                        <li>Haircut</li>
-                        <li>Hair Spa</li>
-                        <li>Styling</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹1,500</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">SKIN GLOW</h4>
-                    <ul class="package-services">
-                        <li>Facial</li>
-                        <li>Cleanup</li>
-                        <li>Detan</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹2,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">SPA & RELAX</h4>
-                    <ul class="package-services">
-                        <li>Massage</li>
-                        <li>Pedicure</li>
-                        <li>Manicure</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹2,500</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">PARTY READY</h4>
-                    <ul class="package-services">
-                        <li>Makeup</li>
-                        <li>Hair Styling</li>
-                        <li>Saree Draping</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹4,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">BRIDAL BEAUTY</h4>
-                    <ul class="package-services">
-                        <li>Bridal Makeup</li>
-                        <li>Hair Styling</li>
-                        <li>Skin Preparation</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹10,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
-                </div>
-                <div class="package-card">
-                    <h4 class="package-name">PRE-BRIDE</h4>
-                    <ul class="package-services">
-                        <li>Hair Care</li>
-                        <li>Skin Treatments</li>
-                        <li>Body Care</li>
-                        <li>Nail Services</li>
-                    </ul>
-                    <div class="package-price">Starting from ₹12,000</div>
-                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+            <div class="packages-section-divide">
+                <h3 class="category-title">LADIES PACKAGES</h3>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <h4 class="package-name">HAIR CARE</h4>
+                        <ul class="package-services">
+                            <li>Haircut</li>
+                            <li>Hair Spa</li>
+                            <li>Styling</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹1,500</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">SKIN GLOW</h4>
+                        <ul class="package-services">
+                            <li>Facial</li>
+                            <li>Cleanup</li>
+                            <li>Detan</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹2,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">SPA & RELAX</h4>
+                        <ul class="package-services">
+                            <li>Massage</li>
+                            <li>Pedicure</li>
+                            <li>Manicure</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹2,500</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">PARTY READY</h4>
+                        <ul class="package-services">
+                            <li>Makeup</li>
+                            <li>Hair Styling</li>
+                            <li>Saree Draping</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹4,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">BRIDAL BEAUTY</h4>
+                        <ul class="package-services">
+                            <li>Bridal Makeup</li>
+                            <li>Hair Styling</li>
+                            <li>Skin Preparation</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹10,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
+                    <div class="package-card">
+                        <h4 class="package-name">PRE-BRIDE</h4>
+                        <ul class="package-services">
+                            <li>Hair Care</li>
+                            <li>Skin Treatments</li>
+                            <li>Body Care</li>
+                            <li>Nail Services</li>
+                        </ul>
+                        <div class="package-price">Starting from ₹12,000</div>
+                        <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="packages-section-divide">
-            <h3 class="category-title">BRIDE & GROOM SPECIAL</h3>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px 20px;">
-                <p style="font-size: 16px; letter-spacing: 2px; line-height: 1.8; opacity: 0.9; margin-bottom: 30px;">
-                    Make your special day unforgettable with our premium bridal and groom services. We offer HD,
-                    Airbrush, and Glass makeup finishes, complete styling, and personalized packages tailored to your
-                    needs.
-                </p>
-                <p style="font-size: 14px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 30px;">
-                    Custom packages available on enquiry
-                </p>
-                <button class="btn btn-primary" onclick="openModal('enquiry')">BOOK CONSULTATION</button>
+            <div class="packages-section-divide">
+                <h3 class="category-title">BRIDE & GROOM SPECIAL</h3>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+                    <p
+                        style="font-size: 16px; letter-spacing: 2px; line-height: 1.8; opacity: 0.9; margin-bottom: 30px;">
+                        Make your special day unforgettable with our premium bridal and groom services. We offer HD,
+                        Airbrush, and Glass makeup finishes, complete styling, and personalized packages tailored to
+                        your
+                        needs.
+                    </p>
+                    <p style="font-size: 14px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 30px;">
+                        Custom packages available on enquiry
+                    </p>
+                    <button class="btn btn-primary" onclick="openModal('enquiry')">BOOK CONSULTATION</button>
+                </div>
             </div>
-        </div>
     </section>
 
     <section id="gallery">
-        <h2 class="section-title">OUR WORK
-            Catalogues</h2>
+        <h3 class="category-title">
+            CATALOGUES</h2>
 
-        <div class="gallery-grid">
-            <!-- 🎥 Video tile (NOW same size) -->
-            <!-- <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
+            <div class="gallery-grid">
+                <!-- 🎥 Video tile (NOW same size) -->
+                <!-- <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
                 <video autoplay muted loop playsinline>
                     <source src="https://drive.google.com/drive/u/5/folders/1gAOP72DDrSf1TYxOvO5HOLwWfZBS9d0w" type="video/mp4">
                 </video>
             </div> -->
 
-            <!-- 🎥 Video tile (NOW same size) -->
-            <!-- <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
+                <!-- 🎥 Video tile (NOW same size) -->
+                <!-- <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
                 <video autoplay muted loop playsinline>
                     <source src="vid2.mp4" type="video/mp4">
                 </video>
             </div> -->
 
-            <!-- Images -->
-      <div class="gallery-carousel auto-scroll">
-  <div class="carousel-track">
+                <!-- Images -->
+                <div class="gallery-carousel auto-scroll">
+                    <div class="carousel-track">
 
-    <div class="carousel-item">
-      <img src="gallery1.jpeg" alt="Salon before after" onclick="openLightbox(this)">
-    </div>
+                        <div class="carousel-item">
+                            <img src="gallery1.jpeg" alt="Salon before after" onclick="openLightbox(this)">
+                        </div>
 
-    <div class="carousel-item">
-      <img src="gallery2.jpeg" alt="Salon styling" onclick="openLightbox(this)">
-    </div>
+                        <div class="carousel-item">
+                            <img src="gallery2.jpeg" alt="Salon styling" onclick="openLightbox(this)">
+                        </div>
 
-    <div class="carousel-item">
-      <img src="gallery3.jpeg" alt="Hair styling" onclick="openLightbox(this)">
-    </div>
+                        <div class="carousel-item">
+                            <img src="gallery3.jpeg" alt="Hair styling" onclick="openLightbox(this)">
+                        </div>
 
-    <div class="carousel-item">
-      <img src="gallery4.jpeg" alt="Salon interior" onclick="openLightbox(this)">
-    </div>
+                        <div class="carousel-item">
+                            <img src="gallery4.jpeg" alt="Salon interior" onclick="openLightbox(this)">
+                        </div>
 
-  </div>
-</div>
+                    </div>
+                </div>
 
 
     </section>
@@ -1885,44 +1888,47 @@
     </div>
 
     <section id="reviews">
-        <h2 class="section-title">REVIEWS</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">Very Nice Experience....Excellent staff service, especially hair cut and hair
-                    massage.I am very happy and 100 % satisfied in your services...and also very comfortable
-                    environment.Thank youuu soo much for your valid services.</p>
-                <p class="review-author">- Neena Binoy</p>
+        <h3 class="category-title">REVIEWS</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Very Nice Experience....Excellent staff service, especially hair cut and hair
+                        massage.I am very happy and 100 % satisfied in your services...and also very comfortable
+                        environment.Thank youuu soo much for your valid services.</p>
+                    <p class="review-author">- Neena Binoy</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">My son's hair cut was done very well. Good ambience and good service
+                        especially
+                        Anees.. thanks for your service</p>
+                    <p class="review-author">- Dileep Louis</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">The salon is impeccably hygienic and the equipment was clean", "I am very
+                        happy
+                        with the results and will come back again for sure</p>
+                    <p class="review-author">- Roshan T.S</p>
+                </div>
             </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">My son's hair cut was done very well. Good ambience and good service especially
-                    Anees.. thanks for your service</p>
-                <p class="review-author">- Dileep Louis</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">The salon is impeccably hygienic and the equipment was clean", "I am very happy
-                    with the results and will come back again for sure</p>
-                <p class="review-author">- Roshan T.S</p>
-            </div>
-        </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title">CONTACT US</h2>
-        <div class="contact-info">
-            <div class="contact-item">📍 Bypass, opp. Cloud 9 Hotel, Thankalam, Kothamangalam, Kerala 686691</div>
-            <div class="contact-item">📞 <a href="tel:+919778756830">+91 97787 56830</a></div>
-            <div class="contact-item">✉️ <a href="mailto:info@lumelounge.com">lumeunisexlongue@gmail.com</a></div>
-            <div class="contact-item">🕒 Open: 9:30 AM - 9:30 PM (Mon - Sun)</div>
-            <div class="contact-item">
-                📸 <a href="https://instagram.com/lume_unisex_longue" target="_blank">
-                    @lume_unisex_longue
-                </a>
-            </div>
+        <h3 class="category-title">CONTACT US</h2>
+            <div class="contact-info">
+                <div class="contact-item">📍 Bypass, opp. Cloud 9 Hotel, Thankalam, Kothamangalam, Kerala 686691</div>
+                <div class="contact-item">📞 <a href="tel:+919778756830">+91 97787 56830</a></div>
+                <div class="contact-item">✉️ <a href="mailto:ilumeunisexlongue@gmail.com">lumeunisexlongue@gmail.com</a>
+                </div>
+                <div class="contact-item">🕒 Open: 9:30 AM - 9:30 PM (Mon - Sun)</div>
+                <div class="contact-item">
+                    📸 <a href="https://instagram.com/lume_unisex_lounge" target="_blank">
+                        @lume_unisex_longue
+                    </a>
+                </div>
 
-        </div>
+            </div>
     </section>
 
     <footer>
@@ -2251,37 +2257,30 @@
             box.classList.remove("active");
         }
 
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
 
-  let index = 0;
+        let index = 0;
 
-  function updateCarousel() {
-    const itemWidth = document.querySelector('.carousel-item').offsetWidth + 16;
-    track.style.transform = `translateX(-${index * itemWidth}px)`;
-  }
+        function updateCarousel() {
+            const itemWidth = document.querySelector('.carousel-item').offsetWidth + 16;
+            track.style.transform = `translateX(-${index * itemWidth}px)`;
+        }
 
-  nextBtn.addEventListener('click', () => {
-    const maxIndex = track.children.length - 1;
-    index = index < maxIndex ? index + 1 : 0;
-    updateCarousel();
-  });
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = track.children.length - 1;
+            index = index < maxIndex ? index + 1 : 0;
+            updateCarousel();
+        });
 
-  prevBtn.addEventListener('click', () => {
-    const maxIndex = track.children.length - 1;
-    index = index > 0 ? index - 1 : maxIndex;
-    updateCarousel();
-  });
+        prevBtn.addEventListener('click', () => {
+            const maxIndex = track.children.length - 1;
+            index = index > 0 ? index - 1 : maxIndex;
+            updateCarousel();
+        });
 
-  window.addEventListener('resize', updateCarousel);
-
-
-
-
+        window.addEventListener('resize', updateCarousel);
     </script>
-
-
 </body>
-
 </html>
