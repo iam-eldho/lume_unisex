@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -969,7 +968,6 @@
     <header>
         <div class="logo">LUMÉ</div>
         <div class="header-right">
-            <a href="tel:+919778756830" class="phone-link">+91 97787 56830</a>
             <nav>
                 <a href="#home">HOME</a>
                 <a href="#services">SERVICES</a>
@@ -993,10 +991,9 @@
         <h1>LUMÉ - THE UNISEX LOUNGE</h1>
         <p class="tagline">LUXURY · MODERN · PROFESSIONAL</p>
         <div class="hero-cta">
-            <button class="btn btn-primary" onclick="openModal()">BOOK APPOINTMENT</button>
+            <button class="btn btn-primary" onclick="openModal('appointment')">BOOK APPOINTMENT</button>
             <a href="https://wa.me/919778756830" class="btn btn-secondary" target="_blank">WHATSAPP NOW</a>
         </div>
-        <div class="hero-phone">📞 +91 97787 56830</div>
     </section>
 
     <section id="services">
@@ -1061,7 +1058,7 @@
                         <li>Hair Wash</li>
                     </ul>
                     <div class="package-price">Starting from ₹500</div>
-                    <button class="package-btn" onclick="openModal()">ENQUIRE NOW</button>
+                    <button class="package-btn" onclick="openModal('enquiry')">ENQUIRE NOW</button>
                 </div>
                 <div class="package-card">
                     <h4 class="package-name">PREMIUM GROOMING COMBO</h4>
@@ -1185,7 +1182,7 @@
                 <p style="font-size: 14px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 30px;">
                     Custom packages available on enquiry
                 </p>
-                <button class="btn btn-primary" onclick="openModal()">BOOK CONSULTATION</button>
+                <button class="btn btn-primary" onclick="openModal('appointment')">BOOK CONSULTATION</button>
             </div>
         </div>
     </section>
@@ -1231,17 +1228,27 @@
     <section id="contact">
         <h2 class="section-title">CONTACT US</h2>
         <div class="contact-info">
-            <div class="contact-item">📍 123 Main Street, Kochi, Kerala 682001</div>
+            <div class="contact-item">📍 Bypass, opp. Cloud 9 Hotel, Thankalam, Kothamangalam, Kerala 686691</div>
             <div class="contact-item">📞 <a href="tel:+919778756830">+91 97787 56830</a></div>
             <div class="contact-item">✉️ <a href="mailto:info@lumelounge.com">info@lumelounge.com</a></div>
-            <div class="contact-item">🕒 Open: 9:00 AM - 8:00 PM (Mon - Sun)</div>
+            <div class="contact-item">🕒 Open: 9:30 AM - 9:30 PM (Mon - Sun)</div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 LUMÉ – THE UNISEX LOUNGE · ALL RIGHTS RESERVED</p>
-        <p style="margin-top: 10px; font-size: 11px;">📞 +91 97787 56830</p>
+        <p>© 2026 LUMÉ – The Unisex Lounge. All rights reserved.</p>
+        <p style="margin-top: 8px; color: #fff;">
+            Designed &amp; developed by
+            <a href="https://www.linkedin.com/in/eldho-thampi" target="_blank" rel="noopener noreferrer"
+                style="color: inherit; text-decoration: none;">
+                Eldho
+            </a>.
+        </p>
+
     </footer>
+
+
+
 
     <div class="modal" id="appointmentModal">
         <div class="modal-content">
@@ -1254,7 +1261,8 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">PHONE NUMBER *</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]*"
+                        inputmode="numeric" maxlength="10">
                 </div>
                 <div class="form-group">
                     <label for="gender">GENDER *</label>
@@ -1280,14 +1288,27 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <input type="hidden" id="requestType" name="requestType" value="Appointment">
+
+                <div class="form-group" id="dateGroup" style="display:none;">
                     <label for="date">PREFERRED DATE</label>
                     <input type="date" id="date" name="date">
                 </div>
-                <div class="form-group">
-                    <label for="time">PREFERRED TIME</label>
-                    <input type="time" id="time" name="time" step="60">
-                </div>
+<div class="form-group" id="timeGroup" style="display:none;">
+  <label for="time">PREFERRED TIME</label>
+  <input 
+    type="time" 
+    id="time" 
+    name="time"
+    min="09:30"
+    max="21:30"
+    required
+  >
+  <small id="timeError" style="color:red; display:none;">
+    Please select a time between 9:30 AM and 9:30 PM
+  </small>
+</div>
+
                 <div class="form-group">
                     <label for="message">MESSAGE (OPTIONAL)</label>
                     <textarea id="message" name="message"></textarea>
@@ -1310,6 +1331,13 @@
             .catch(() => {
                 clientIP = "Unavailable";
             });
+
+        const phoneInput = document.getElementById('phone');
+
+        phoneInput.addEventListener('input', function () {
+            // Remove everything except digits
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
 
         function convertTo24Hour(time12h) {
             const [time, modifier] = time12h.split(" ");
@@ -1357,11 +1385,45 @@
             toggle.classList.remove('active');
         }
 
-        // Modal functions
-        function openModal() {
-            document.getElementById('appointmentModal').classList.add('active');
+        function openModal(type) {
+            const modal = document.getElementById('appointmentModal');
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            const requestTypeInput = document.getElementById('requestType');
+            const dateGroup = document.getElementById('dateGroup');
+            const timeGroup = document.getElementById('timeGroup');
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+
+            if (type === 'appointment') {
+                requestTypeInput.value = 'Appointment';
+
+                dateGroup.style.display = 'block';
+                timeGroup.style.display = 'block';
+
+                // 🔥 REQUIRED ONLY FOR APPOINTMENT
+                dateInput.required = true;
+                timeInput.required = true;
+
+            } else {
+                requestTypeInput.value = 'Enquiry';
+
+                dateGroup.style.display = 'none';
+                timeGroup.style.display = 'none';
+
+                // 🔥 REMOVE REQUIRED FOR ENQUIRY
+                dateInput.required = false;
+                timeInput.required = false;
+
+                // Optional: clear values
+                dateInput.value = '';
+                timeInput.value = '';
+            }
         }
+
+
+
 
         function closeModal() {
             document.getElementById('appointmentModal').classList.remove('active');
@@ -1377,11 +1439,17 @@
 
             let timeValue = document.getElementById("time").value;
 
+            const requestType = document.getElementById("requestType").value;
+            const dateValue = document.getElementById("date").value;
 
-            if (!timeValue) {
-                alert("Please select a preferred time");
-                return;
+
+            if (requestType === "Appointment") {
+                if (!dateValue || !timeValue) {
+                    alert("Please select date and time for appointment");
+                    return;
+                }
             }
+
             // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'SUBMITTING...';
@@ -1395,14 +1463,16 @@
                 purpose: document.getElementById('purpose').value,
                 date: document.getElementById('date').value,
                 time: timeValue,
+                requestType: requestType,
                 message: document.getElementById('message').value,
                 ip: clientIP,
                 timestamp: new Date().toLocaleString()
             };
 
             try {
+
                 // Replace with your Google Apps Script Web App URL
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbwrC1JaitfoD4BUVcFKn-STATd1r113jOxOalo2Rx3RLMaESRQil_yNeCjSjVL61WBbhw/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxAIRD-2aXUaTc7DR6B4MiU-Nke3NCK_E-wOVgh9pmlRmtFU9iftPS4VCxP45LjIfkySQ/exec';
 
                 const formBody = new URLSearchParams(formData);
 
@@ -1411,22 +1481,33 @@
                     body: formBody
                 });
 
-
                 if (response.ok) {
                     formMessage.className = 'form-message success';
-                    formMessage.textContent = 'Thank you! Your appointment request has been received. We will contact you soon.';
+                    formMessage.textContent =
+                        'Thank you! Your request has been received. We will contact you soon.';
+
                     document.getElementById('appointmentForm').reset();
+
+                    // Show message
+                    formMessage.style.display = 'block';
 
                     setTimeout(() => {
                         closeModal();
                         formMessage.style.display = 'none';
                     }, 3000);
+
                 } else {
                     throw new Error('Submission failed');
                 }
+
             } catch (error) {
+                console.error(error);
+
                 formMessage.className = 'form-message error';
-                formMessage.textContent = 'Sorry, there was an error. Please call us directly at +91 98765 43210';
+                formMessage.textContent =
+                    'Sorry, there was an error. Please call us directly at +91 98765 43210';
+                formMessage.style.display = 'block';
+
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'SUBMIT ENQUIRY';
