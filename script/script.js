@@ -83,6 +83,16 @@ function openModal(type) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 
+    const title = document.getElementById('modalTitle');
+    if (type === 'enquiry' || type === 'consultation') {
+        title.textContent = 'ENQUIRE NOW';
+        requestType.value = 'Enquiry';
+    } else {
+        title.textContent = 'BOOK APPOINTMENT';
+        requestType.value = 'Appointment';
+    }
+    modal.classList.add('active');
+
     const requestTypeInput = document.getElementById('requestType');
     const dateGroup = document.getElementById('dateGroup');
     const timeGroup = document.getElementById('timeGroup');
