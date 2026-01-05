@@ -79,6 +79,7 @@ function closeMenu() {
 }
 
 function openModal(type) {
+    document.body.classList.add('modal-open');
     const modal = document.getElementById('appointmentModal');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -126,6 +127,7 @@ function openModal(type) {
 }
 
 function closeModal() {
+    document.body.classList.remove('modal-open');
     document.getElementById('appointmentModal').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
