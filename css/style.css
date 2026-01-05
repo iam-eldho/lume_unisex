@@ -61,6 +61,7 @@
             position: absolute;
             width: 80px;
             height: 80px;
+            color: #c9a24d;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -79,11 +80,13 @@
         .scissor-left {
             left: 0;
             animation: scissorLeft 1.5s ease-in-out infinite;
+            background: var(--border-color);
         }
 
         .scissor-right {
             right: 0;
             animation: scissorRight 1.5s ease-in-out infinite;
+            background: var(--border-color);
         }
 
         @keyframes scissorLeft {
