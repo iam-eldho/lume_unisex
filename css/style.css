@@ -958,7 +958,7 @@
         }
 
         #gallery {
-            padding: 80px 20px;
+            padding: 40px 8px;
         }
 
         .gallery-grid {
@@ -1566,7 +1566,7 @@
 
         @media (max-width: 768px) {
             .services-modern {
-                padding-top: 50px;
+                padding: 50px 10px;
             }
 
             .form-group input,
