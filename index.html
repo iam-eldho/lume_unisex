@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,29 +216,28 @@
             opacity: 0.6;
         }
 
-       .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 120px 20px 60px;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 120px 20px 60px;
 
-  /* 🔥 Background image */
-  background-image:
-    linear-gradient(
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)
-    ),
-    url("./hero.jpg"); /* change path */
+            /* 🔥 Background image */
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)),
+                url("hero.jpg");
+            /* change path */
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
 
-  color: #fff;
-}
+            color: #fff;
+        }
 
 
         .hero h1 {
@@ -964,6 +964,78 @@
             }
 
         }
+
+        #gallery {
+            padding: 80px 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            /* 🔥 equal tiles */
+            width: 100%;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #111;
+            cursor: pointer;
+        }
+
+        /* Image & Video behave identically */
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* Hover zoom */
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.08);
+        }
+
+
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 9999;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #lightbox img,
+        #lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 14px;
+            transform: scale(0.9);
+            transition: transform 0.35s ease;
+        }
+
+        #lightbox.active img,
+        #lightbox.active video {
+            transform: scale(1);
+        }
     </style>
 </head>
 
@@ -1008,49 +1080,49 @@
         <div class="hero-cta">
             <button class="btn btn-primary" onclick="openModal('appointment')">BOOK APPOINTMENT</button>
             <a href="https://wa.me/919778756830" class="btn btn-secondary" target="_blank">WHATSAPP NOW</a>
-          
+
 
         </div>
     </section>
 
     <section id="services">
-  <h2 class="section-title">OUR SERVICES</h2>
+        <h2 class="section-title">OUR SERVICES</h2>
 
-  <div class="services-container simple">
+        <div class="services-container simple">
 
-    <div class="service-category">
-      <h3>GENTS</h3>
-      <ul class="service-list">
-        <li>Haircut & Styling</li>
-        <li>Beard Grooming</li>
-        <li>Hair Treatments</li>
-        <li>Hair Colour</li>
-        <li>Facials & Skin Care</li>
-        <li>Head Massage</li>
-        <li>Pedicure & Manicure</li>
-        <li>Groom Makeup</li>
-      </ul>
-    </div>
+            <div class="service-category">
+                <h3>GENTS</h3>
+                <ul class="service-list">
+                    <li>Haircut & Styling</li>
+                    <li>Beard Grooming</li>
+                    <li>Hair Treatments</li>
+                    <li>Hair Colour</li>
+                    <li>Facials & Skin Care</li>
+                    <li>Head Massage</li>
+                    <li>Pedicure & Manicure</li>
+                    <li>Groom Makeup</li>
+                </ul>
+            </div>
 
-    <div class="service-category">
-      <h3>LADIES</h3>
-      <ul class="service-list">
-        <li>Haircut & Styling</li>
-        <li>Hair Colour & Highlights</li>
-        <li>Smoothening & Keratin</li>
-        <li>Hair Spa & Treatments</li>
-        <li>Facials & Skin Care</li>
-        <li>Threading & Detan</li>
-        <li>Nail Services</li>
-        <li>Waxing & Body Care</li>
-        <li>Party & Bridal Makeup</li>
-        <li>Saree Draping</li>
-      </ul>
-    </div>
+            <div class="service-category">
+                <h3>LADIES</h3>
+                <ul class="service-list">
+                    <li>Haircut & Styling</li>
+                    <li>Hair Colour & Highlights</li>
+                    <li>Smoothening & Keratin</li>
+                    <li>Hair Spa & Treatments</li>
+                    <li>Facials & Skin Care</li>
+                    <li>Threading & Detan</li>
+                    <li>Nail Services</li>
+                    <li>Waxing & Body Care</li>
+                    <li>Party & Bridal Makeup</li>
+                    <li>Saree Draping</li>
+                </ul>
+            </div>
 
-  </div>
+        </div>
 
-</section>
+    </section>
 
 
     <section id="packages">
@@ -1198,34 +1270,72 @@
 
     <section id="gallery">
         <h2 class="section-title">GALLERY</h2>
+
         <div class="gallery-grid">
-            <div class="gallery-item">BEFORE/AFTER 1</div>
-            <div class="gallery-item">BEFORE/AFTER 2</div>
-            <div class="gallery-item">BEFORE/AFTER 3</div>
-            <div class="gallery-item">BEFORE/AFTER 4</div>
-            <div class="gallery-item">STYLE 1</div>
-            <div class="gallery-item">STYLE 2</div>
-            <div class="gallery-item">STYLE 3</div>
-            <div class="gallery-item">STYLE 4</div>
+
+            <!-- 🎥 Video tile (NOW same size) -->
+            <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
+                <video autoplay muted loop playsinline>
+                    <source src="vid.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- 🎥 Video tile (NOW same size) -->
+            <div class="gallery-item video-item" onclick="openVideoLightbox('vid.mp4')">
+                <video autoplay muted loop playsinline>
+                    <source src="vid2.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- Images -->
+            <div class="gallery-item">
+                <img src="gallery1.jpeg" alt="Salon before after" onclick="openLightbox(this)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="gallery2.jpeg" alt="Salon styling" onclick="openLightbox(this)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="gallery3.jpeg" alt="Hair styling" onclick="openLightbox(this)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="gallery4.jpeg" alt="Salon interior" onclick="openLightbox(this)">
+            </div>
+
         </div>
     </section>
+
+
+    <!-- 🔥 LIGHTBOX -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" style="display:none;">
+        <video id="lightbox-video" controls style="display:none;"></video>
+    </div>
+
+
 
     <section id="reviews">
         <h2 class="section-title">REVIEWS</h2>
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">Very Nice Experience....Excellent staff service, especially hair cut and hair massage.I am very happy and 100 % satisfied in your services...and also very comfortable environment.Thank youuu soo much for your valid services.</p>
+                <p class="review-text">Very Nice Experience....Excellent staff service, especially hair cut and hair
+                    massage.I am very happy and 100 % satisfied in your services...and also very comfortable
+                    environment.Thank youuu soo much for your valid services.</p>
                 <p class="review-author">- Neena Binoy</p>
             </div>
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">My son's hair cut was done very well. Good ambience and good service especially Anees.. thanks for your service</p>
+                <p class="review-text">My son's hair cut was done very well. Good ambience and good service especially
+                    Anees.. thanks for your service</p>
                 <p class="review-author">- Dileep Louis</p>
             </div>
             <div class="review-card">
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">The salon is impeccably hygienic and the equipment was clean", "I am very happy with the results and will come back again for sure</p>
+                <p class="review-text">The salon is impeccably hygienic and the equipment was clean", "I am very happy
+                    with the results and will come back again for sure</p>
                 <p class="review-author">- Roshan T.S</p>
             </div>
         </div>
@@ -1300,20 +1410,13 @@
                     <label for="date">PREFERRED DATE</label>
                     <input type="date" id="date" name="date">
                 </div>
-<div class="form-group" id="timeGroup" style="display:none;">
-  <label for="time">PREFERRED TIME</label>
-  <input 
-    type="time" 
-    id="time" 
-    name="time"
-    min="09:30"
-    max="21:30"
-    required
-  >
-  <small id="timeError" style="color:red; display:none;">
-    Please select a time between 9:30 AM and 9:30 PM
-  </small>
-</div>
+                <div class="form-group" id="timeGroup" style="display:none;">
+                    <label for="time">PREFERRED TIME</label>
+                    <input type="time" id="time" name="time" min="09:30" max="21:30" required>
+                    <small id="timeError" style="color:red; display:none;">
+                        Please select a time between 9:30 AM and 9:30 PM
+                    </small>
+                </div>
 
                 <div class="form-group">
                     <label for="message">MESSAGE (OPTIONAL)</label>
@@ -1537,7 +1640,51 @@
                 closeMenu();
             }
         });
+
+
+        function openLightbox(img) {
+            const box = document.getElementById("lightbox");
+            const imgEl = document.getElementById("lightbox-img");
+            const videoEl = document.getElementById("lightbox-video");
+
+            videoEl.pause();
+            videoEl.style.display = "none";
+
+            imgEl.src = img.src;
+            imgEl.style.display = "block";
+
+            box.classList.add("active");
+        }
+
+        function openVideoLightbox(src) {
+            const box = document.getElementById("lightbox");
+            const imgEl = document.getElementById("lightbox-img");
+            const videoEl = document.getElementById("lightbox-video");
+
+            imgEl.style.display = "none";
+            videoEl.muted = true;      // ✅ KEEP MUTED
+            videoEl.src = src;
+            videoEl.style.display = "block";
+            videoEl.muted = false;
+            videoEl.play();
+
+            box.classList.add("active");
+        }
+
+        function closeLightbox() {
+            const box = document.getElementById("lightbox");
+            const videoEl = document.getElementById("lightbox-video");
+
+            videoEl.pause();
+            videoEl.src = "";
+
+            box.classList.remove("active");
+        }
+
+
     </script>
+
+
 </body>
 
 </html>
